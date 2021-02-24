@@ -70,7 +70,7 @@ def perpetual_connection_monitor(interval):
             # Check every 'interval' seconds to see if the connection is back. Sum up the outage time in seconds by adding 'interval' to the total. 
             while not internet():
                 time.sleep(interval)
-                #total_downtime_seconds += 5
+                #total_downtime_seconds += interval
 
             # Log time of first subsequent succesful connection after a period offline:
             back_online = datetime.datetime.now()
@@ -86,4 +86,4 @@ def perpetual_connection_monitor(interval):
                 writer.write("---\n")
 
 
-perpetual_connection_monitor(5)
+perpetual_connection_monitor(1)
